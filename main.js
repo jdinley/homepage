@@ -17,9 +17,6 @@ fetch("https://api.github.com/users/jdinley/repos")
 	})
 	.then(function(repositories) {
 		repositories.forEach((repo, index) => {
-			// const p = document.createElement("p");
-			// p.textContent = repo.name;
-			// document.querySelector(".project").appendChild(p);
 			let capWord = capitalizeFirstLetter(repo.name);
 			const markup = `
       <ul>
@@ -32,20 +29,8 @@ fetch("https://api.github.com/users/jdinley/repos")
         <li class="project-desc">${`Description: ${repo.description}`};</li>
       </ul>`;
 
-			// var node = document.createElement("div");
-			// var textNode = document.createTextNode(markup);
-			// node.appendChild(textNode);
-			// document.querySelector(".project").appendChild(node);
 			document.querySelector(".project").insertAdjacentHTML("beforebegin", markup);
-			// document.body.innerHTML = markup;
 
-			console.log(markup);
-
-			// console.log(`Updated On: ${dateFns.format(new Date(repo.updated_at), "DD MMMM YYYY")}`);
-			// console.log(`Created On: ${dateFns.format(new Date(repo.created_at), "DD MMMM YYYY")}`);
-			// console.log(`Repository Name: ${repo.name}`);
-			// console.log(`Language: ${repo.language}`);
-			// console.log(`Description: ${repo.description}`);
-			// console.log("-----------------------------------------------");
+			// console.log(markup);
 		});
 	});
