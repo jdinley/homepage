@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "John Dinley",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "date-fns": "^1.30.1"
+  }
 }
