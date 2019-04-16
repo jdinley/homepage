@@ -10,7 +10,7 @@ fetch("https://api.github.com/users/jdinley/repos")
 		return response.json();
 	})
 	.then(function(repositories) {
-		// console.log(repositories[0]);
+		console.log(repositories[0]);
 
 		repositories.forEach((repo, index) => {
 			let capWord = capitalizeFirstLetter(repo.name);
@@ -21,7 +21,13 @@ fetch("https://api.github.com/users/jdinley/repos")
           <span class="project-date-created">${`Created On: ${dateFns.format(new Date(repo.created_at), "MM/DD/YYYY")}`};</span>
         </li>
         <li class="project-name"><a href="${repo.html_url}">${capWord}</a></li>
-        <li class="project-lang">${`Language: ${repo.language}`};</li>
+				<li class="project-lang">
+				<span>${`Language: ${repo.language}`};</span><br>
+				<span>${`ID: ${repo.id}`};</span><br>
+				<span>${`Branch: ${repo.branch}`};</span><br>
+				<span>${`License: ${repo.license}`};</span>
+				</li>
+        
         <li class="project-desc">${`Description: ${repo.description}`};</li>
       </ul>`;
 
