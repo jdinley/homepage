@@ -10,15 +10,17 @@ fetch("https://api.github.com/users/jdinley/repos")
 		return response.json();
 	})
 	.then(function(repositories) {
-		console.log(repositories[0]);
+		// console.log(repositories[0]);
 
 		repositories.forEach((repo, index) => {
 			let capWord = capitalizeFirstLetter(repo.name);
+			const projectDateUpdated = `Updated On: ${dateFns.format(new Date(repo.updated_at), "MM/DD/YYYY")}`;
+			const projectDateCreated = `Created On: ${dateFns.format(new Date(repo.created_at), "MM/DD/YYYY")}`;
 			const markup = `
       <ul>
         <li class="project-date">
-          <span class="project-date-updated">${`Updated On: ${dateFns.format(new Date(repo.updated_at), "MM/DD/YYYY")}`}</span><br>
-          <span class="project-date-created">${`Created On: ${dateFns.format(new Date(repo.created_at), "MM/DD/YYYY")}`};</span>
+          <span class="project-date-updated"> ${projectDateUpdated} </span><br>
+          <span class="project-date-created">${projectDateCreated};</span>
         </li>
         <li class="project-name"><a href="${repo.html_url}">${capWord}</a></li>
 				<li class="project-lang">
