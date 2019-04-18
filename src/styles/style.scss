@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
 // Variables
-$background-color: #9e2b85;
+$background-color: #9e2b3a;
+$font-color-h1: #f8f7e9;
+$font-color: #0e0e0e;
+$font-color-hover: #161616;
 
 * {
 	box-sizing: border-box;
@@ -13,36 +16,55 @@ body {
 	background-color: $background-color;
 	font-family: 'Nunito Sans', sans-serif;
 	font-size: 12px;
+	max-width: 1000px;
 }
-
-ul {
+.header {
+	font-size: 38px;
+	color: $font-color-h1;
+	text-align: right;
+	margin-bottom: 25px;
+}
+.projects {
 	display: grid;
-	grid-template-columns: 20% 40% 20% 20%;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 2fr 1fr 1fr;
 	list-style-type: none;
+	margin-bottom: 20px;
 }
 li {
-	border-top: 2px solid black;
+	border-top: 2px solid $font-color;
 	padding-top: 12px;
 	padding-right: 12px;
 	height: 105px;
+}
+li.project-name {
+	padding-top: 0px;
 }
 
 .project-name {
 	font-size: 3rem;
 }
 .name {
-	color: #fffdee;
+	color: $font-color-h1;
 	font-size: 3rem;
 	padding-left: 160px;
 }
 a {
-	color: black;
+	color: $font-color;
 	text-decoration: none;
 }
 a:hover {
-	color: #2e2e2e;
+	color: $font-color-hover;
 }
-/* For mobile screens */
-/* @media only screen and (max-width: 600px) {
-	
-} */
+@media screen and (max-width: 690px) {
+	.projects {
+		grid-template-columns: 1fr;
+		border-top: 2px solid $font-color;
+	}
+	li {
+		border-top: 0px solid black;
+	}
+	.project-date {
+		height: 45px;
+	}
+}
